@@ -1,0 +1,10 @@
+type: virtual-account
+name: va-enterprise
+permissions:
+  - role_id: tenant-admin
+    resource_fqn: slayzsloth
+    resource_type: tenant
+ownedBy:
+  team: atlas-team
+tags:
+  tier: enterprise

@@ -1,0 +1,23 @@
+name: healthcare-guardrails-policy
+type: gateway-guardrails-config
+rules:
+  - id: healthcare-phi-input-only
+    when:
+      subjects:
+        operator: or
+        conditions:
+          in:
+            - virtualaccount:healthcare-insurer-va
+      target:
+        operator: or
+        conditions:
+          model:
+            condition: in
+            values:
+              - openai/gpt-4o
+              - anthropic/claude-opus-4-5
+    llm_input_guardrails:
+      - healthcare-compliance/phi-redaction
+    llm_output_guardrails: []
+    mcp_tool_pre_invoke_guardrails: []
+    mcp_tool_post_invoke_guardrails: []
