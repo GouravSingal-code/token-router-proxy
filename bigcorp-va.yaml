@@ -1,0 +1,13 @@
+type: virtual-account
+name: bigcorp
+tags:
+  customer: bigcorp
+  tier: enterprise
+  owner: atlas-platform-team
+permissions:
+  - resource_type: provider-account
+    resource_fqn: "slayzsloth:openai:openai"
+    role_id: provider-account-access
+  - resource_type: provider-account
+    resource_fqn: "slayzsloth:anthropic:anthropic"
+    role_id: provider-account-access

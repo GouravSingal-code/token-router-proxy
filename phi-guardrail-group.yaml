@@ -1,0 +1,10 @@
+name: healthcare-compliance
+type: provider-account/guardrail-config-group
+integrations:
+  - name: phi-redaction
+    type: integration/guardrail-config/tfy-pii
+    operation: mutate
+    enforcing_strategy: enforce
+    config:
+      pii_categories:
+        - "*"

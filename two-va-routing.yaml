@@ -1,0 +1,17 @@
+type: gateway-data-routing-config
+destinations:
+  - name: enterprise-customers-s3
+    enabled: true
+    description: "Route traces from healthcare-insurer-va to customer-managed S3"
+    when:
+      - field: created_by
+        operator: IN
+        value:
+          - "virtualaccount:healthcare-insurer-va"
+    storage:
+      type: customer-managed
+      storage_integration_fqn: "slayzsloth:aws:atlas-cluster:blob-storage:blob"
+    traces_retention_period_days: 90
+default:
+  storage:
+    type: controlplane-managed

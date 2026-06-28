@@ -1,0 +1,21 @@
+name: atlas-virtual-model
+type: provider-account/virtual-model
+collaborators:
+  - role_id: provider-account-manager
+    subject: user:gouravsingal2003@gmail.com
+integrations:
+  - name: anthropic-openai
+    type: integration/model/virtual
+    model_types:
+      - chat
+    routing_config:
+      type: weight-based-routing
+      load_balance_targets:
+        - target: openai/gpt-4o
+          weight: 1
+          metadata_match:
+            token_bucket: "small"
+        - target: anthropic/claude-opus-4-5
+          weight: 1
+          metadata_match:
+            token_bucket: "large"
