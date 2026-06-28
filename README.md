@@ -2,8 +2,6 @@
 
 Token-based LLM router proxy (FastAPI) with TrueFoundry/EKS deploy manifests
 
-Token proxy service: https://youtu.be/TpckrfeM_Ww?si=hwCdTnEq4QI7mfT3
-
 ## Architecture
 
 ![Architecture](architecture.png)
@@ -143,6 +141,8 @@ This gives the CISO exactly what he asked for without altering anyone else's set
 
 **Solved by:** [`atlas-virtual-model.yaml`](atlas-virtual-model.yaml) + the proxy
 ([`main.py`](token-proxy/main.py))
+
+▶️ **Demo video:** https://youtu.be/TpckrfeM_Ww?si=hwCdTnEq4QI7mfT3
 
 The proxy counts input tokens and tags each request with an `x-tfy-metadata`
 `token_bucket` of `small` or `large`. The **virtual model** then does
